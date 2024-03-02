@@ -8,7 +8,7 @@ void setup() {
 }
 
 void loop() {
-  if(digitalRead(pinSensor) == LOW){
+  if(digitalRead(pinSensor) == HIGH){
     Serial.println("Movimento");
     digitalWrite(led, HIGH);
   }else{

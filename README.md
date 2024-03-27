@@ -8,6 +8,32 @@ Já nesse projeto o [Sensor_TCRT5000_with_Light_Reflection_Cutoff](https://githu
 
 Infelizmente acaba não funcionando da maneira que seria necessário, já ele detecta movimento a partir do corte de luz, objetos que refletem luz acabam sendo "nulos", ou seja acaba só detectando objetos de tons escuros, sendo assim é o completo oposto do projeto [Sensor_TRT5000_e_Leds](https://github.com/Victor-Lis/Sensor-TCRT5000_e_Leds).
 
-## Autores
+## Código
+O código em si é bem simples, não passando de 20 linhas
+```c++
+int pinSensor = 4;
+int led = 8;
 
+void setup() {
+  pinMode(led, OUTPUT);
+  pinMode(pinSensor, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if(digitalRead(pinSensor) == HIGH){
+    Serial.println("Movimento");
+    digitalWrite(led, HIGH);
+  }else{
+    Serial.println("Sem Movimento");
+    digitalWrite(led, LOW);
+  }
+}
+```
+
+E a protoboard também não tem componentes e distribuições tão complexas:
+
+![Protoboard](./protoboard.jpg)
+
+## Autores
 - [@Victor-Lis](https://github.com/Victor-Lis)
